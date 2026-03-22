@@ -57,11 +57,50 @@ def make_directories(paths: list[str]) -> None:
             print(f'Error while creating directory "{path}": ', e)
 
 
+def cleanup_old_chrome_profiles() -> None:
+    '''
+    Clean up old Chrome profile directories to avoid conflicts
+    '''
+    import shutil
+    import glob
+    
+    if sys.platform.startswith('win'):
+        # Clean up old profiles in C:\temp
+        try:
+            for old_profile in glob.glob("C:\\temp\\auto-job-apply-profile*"):
+                try:
+                    shutil.rmtree(old_profile, ignore_errors=True)
+                except:
+                    pass  # Ignore errors if directory is in use
+        except:
+            pass  # Ignore if C:\temp doesn't exist
+
+
 def get_default_temp_profile() -> str:
     # Thanks to https://github.com/vinodbavage31 for suggestion!
     home = pathlib.Path.home()
     if sys.platform.startswith('win'):
-        return "--user-data-dir=C:\\temp\\auto-job-apply-profile"
+        # Clean up old profiles first
+        cleanup_old_chrome_profiles()
+        
+        # Use user's temp directory as fallback if C:\temp has issues
+        import tempfile
+        temp_dir = tempfile.gettempdir()
+        
+        # Use a timestamp to create unique profile directories to avoid conflicts
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        
+        # Try C:\temp first, fallback to user temp if needed
+        profile_path = f"C:\\temp\\auto-job-apply-profile-{timestamp}"
+        
+        # Check if we can create C:\temp
+        try:
+            os.makedirs("C:\\temp", exist_ok=True)
+        except:
+            # Fallback to user's temp directory
+            profile_path = os.path.join(temp_dir, f"auto-job-apply-profile-{timestamp}")
+            
+        return f"--user-data-dir={profile_path}"
     elif sys.platform.startswith('linux'):
         return str(home / ".auto-job-apply-profile")
     return str(home / "Library" / "Application Support" / "Google" / "Chrome" / "auto-job-apply-profile")

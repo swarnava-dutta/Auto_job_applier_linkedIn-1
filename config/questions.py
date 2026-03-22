@@ -21,7 +21,7 @@ version:    26.01.20.5.08
 # >>>>>>>>>>> Easy Apply Questions & Inputs <<<<<<<<<<<
 
 # Give an relative path of your default resume to be uploaded. If file in not found, will continue using your previously uploaded resume in LinkedIn.
-default_resume_path = "all resumes/default/Swarnava Dutta_GenAI Engineer.pdf"      # (In Development)
+default_resume_path = ""      # Leave empty to use LinkedIn's saved resume
 
 # What do you want to answer for questions that ask about years of experience you have, this is different from current_experience? 
 years_of_experience = "5"          # A number in quotes Eg: "0","1","2","3","4", etc.
@@ -44,7 +44,7 @@ us_citizenship = "Other"
 ## SOME ANNOYING QUESTIONS BY COMPANIES 🫠 ##
 
 # What to enter in your desired salary question (American and European), What is your expected CTC (South Asian and others)?, only enter in numbers as some companies only allow numbers,
-desired_salary = 3500000          # 80000, 90000, 100000 or 120000 and so on... Do NOT use quotes
+desired_salary = 5500000          # 80000, 90000, 100000 or 120000 and so on... Do NOT use quotes
 '''
 Note: If question has the word "lakhs" in it (Example: What is your expected CTC in lakhs), 
 then it will add '.' before last 5 digits and answer. Examples: 
@@ -56,7 +56,7 @@ And if asked in months, then it will divide by 12 and answer. Examples:
 '''
 
 # What is your current CTC? Some companies make it compulsory to be answered in numbers...
-current_ctc = 2800000            # 800000, 900000, 1000000 or 1200000 and so on... Do NOT use quotes
+current_ctc = 4050000            # 800000, 900000, 1000000 or 1200000 and so on... Do NOT use quotes
 '''
 Note: If question has the word "lakhs" in it (Example: What is your current CTC in lakhs), 
 then it will add '.' before last 5 digits and answer. Examples: 
@@ -84,12 +84,12 @@ then it will divide by 30 or 7 and answer respectively. Examples:
 '''
 
 # Your LinkedIn headline in quotes Eg: "Software Engineer @ Google, Masters in Computer Science", "Recent Grad Student @ MIT, Computer Science"
-linkedin_headline = "Senior Gen AI Engineer | RAG, Agentic AI, MCP | LangChain, LangGraph | PyTorch, Vector DBs | Certified: Microsoft, Databricks, Airflow" # "Headline" or "" to leave this question unanswered
+linkedin_headline = "Senior Generative AI Architect | LLM, RAG, Agentic AI | LangChain, LangGraph | Azure AI Foundry | Vector Databases, PyTorch | Certified in Microsoft, Databricks, Airflow" # "Headline" or "" to leave this question unanswered
 
 # Your summary in quotes, use \n to add line breaks if using single quotes "Summary".You can skip \n if using triple quotes """Summary"""
 linkedin_summary = """
-I’m a Senior Generative AI Engineer with 𝟱 𝘆𝗲𝗮𝗿𝘀 𝗼𝗳 𝗵𝗮𝗻𝗱𝘀-𝗼𝗻 𝗲𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗲 in designing, scaling, and optimizing enterprise-grade AI and data platforms.
-My background in Data Engineering, combined with hands-on expertise in LLMs, RAG, AI Agents, and model deployment, allows me to deliver end-to-end Gen AI applications that are both innovative and production-ready.
+I’m a Senior Generative AI Engineer with 𝟱+ 𝘆𝗲𝗮𝗿𝘀 𝗼𝗳 𝗲𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗲 building LLM, RAG, AI Agent and Agentic AI systems, delivering production-ready AI copilots, knowledge assistants, and enterprise AI platforms.
+I’ve led AI and data projects across various domains, including Banking, Medtech, Sales, HR, Supply Chain, and ERP systems, handling everything from PoCs involving sensitive data to full-scale AI integrations, including multi-agent systems that coordinate autonomous workflows across enterprise processes.
 """
 
 '''
@@ -112,7 +112,7 @@ Note: If left empty as "", the tool will not answer the question. However, note 
 ''' 
 
 # Name of your most recent employer
-recent_employer = "Syren Technologies Private Limited" # "", "Lala Company", "Google", "Snowflake", "Databricks"
+recent_employer = "TEKsystems Global Services Pvt Ltd" # "", "Lala Company", "Google", "Snowflake", "Databricks"
 
 # Example question: "On a scale of 1-10 how much experience do you have building web or mobile applications? 1 being very little or only in school, 10 being that you have built and launched applications to real users"
 confidence_level = "8"             # Any number between "1" to "10" including 1 and 10, put it in quotes ""

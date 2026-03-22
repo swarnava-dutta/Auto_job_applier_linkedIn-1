@@ -29,7 +29,9 @@ from modules.helpers import find_default_profile_directory, critical_error_log, 
 from selenium.common.exceptions import SessionNotCreatedException
 
 def createChromeSession(isRetry: bool = False):
-    make_directories([file_name,failed_file_name,logs_folder_path+"/screenshots",default_resume_path,generated_resume_path+"/temp"])
+    # Create Chrome profile directory
+    chrome_profile_dir = get_default_temp_profile().replace("--user-data-dir=", "")
+    make_directories([file_name,failed_file_name,logs_folder_path+"/screenshots",default_resume_path,generated_resume_path+"/temp", chrome_profile_dir])
     # Set up WebDriver with Chrome Profile
     options = uc.ChromeOptions() if stealth_mode else Options()
     if run_in_background:   options.add_argument("--headless")
@@ -43,7 +45,7 @@ def createChromeSession(isRetry: bool = False):
         options.add_argument(f"--user-data-dir={profile_dir}")
     else:
         print_lg("Logging in with a guest profile, Web history will not be saved!")
-        options.add_argument(f"--user-data-dir={get_default_temp_profile()}")
+        options.add_argument(get_default_temp_profile())
     if stealth_mode:
         # try: 
         #     driver = uc.Chrome(driver_executable_path="C:\\Program Files\\Google\\Chrome\\chromedriver-win64\\chromedriver.exe", options=options)
