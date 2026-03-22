@@ -17,8 +17,8 @@ version:    24.12.3.10.30
 
 
 # Login Credentials for LinkedIn (Optional)
-username = "username@example.com"       # Enter your username in the quotes
-password = "example_password"           # Enter your password in the quotes
+username = "swarnavadutta.official@gmail.com"       # Enter your username in the quotes
+password = "San@1997"           # Enter your password in the quotes
 
 
 ## Artificial Intelligence (Beta Not-Recommended)
@@ -63,7 +63,7 @@ If you are using ollama, you MUST put "not-needed".
 '''
 
 # Your LLM model name or other AI model name
-llm_model = "gpt-5-mini"          # Examples: "gpt-3.5-turbo", "gpt-4o", "llama-3.2-3b-instruct", "qwen3:latest", "gemini-pro", "gemini-1.5-flash", "gemini-2.5-flash", "deepseek-llm:latest"
+llm_model = "gpt-5.1-2025-11-13"          # Examples: "gpt-3.5-turbo", "gpt-4o", "llama-3.2-3b-instruct", "qwen3:latest", "gemini-pro", "gemini-1.5-flash", "gemini-2.5-flash", "deepseek-llm:latest"
 
 llm_spec = "openai"                # Examples: "openai", "openai-like", "openai-like-github", "openai-like-mistral"
 '''
